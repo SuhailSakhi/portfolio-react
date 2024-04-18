@@ -73,10 +73,21 @@
     #about .w-1\/2:first-child {
         margin-bottom: 2rem;
     }
-        .carousel {
-            animation: none;
-        }
-    
+
+    .carousel {
+        overflow: visible; /* Zorg ervoor dat de inhoud van de carousel zichtbaar is */
+        white-space: nowrap; /* Voorkom dat tekst naar een nieuwe regel gaat */
+        margin: 0 auto; /* Centreer de carousel */
+    width: 100%; /* Maak de carousel schermvullend */
+    }
+
+    .carousel img {
+        width: auto; /* Stel de breedte in op automatisch om de oorspronkelijke grootte te behouden */
+        height: 50px; /* Houd de hoogte hetzelfde als voorheen */
+        margin: 0 10px; /* Aanpassen van de marge indien nodig */
+        transition: none; /* Verwijder de hover-effect overgang */
+    }
+
 
     /* Move text above image in Skills Section */
     #skills .flex {
