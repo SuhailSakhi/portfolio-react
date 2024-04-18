@@ -99,8 +99,17 @@
             margin-right: 0; /* Remove any right margin */
             vertical-align: middle;
         }
+        /* Verklein de lettergrootte van de welkomstsectie */
+        #home h1.text-9xl {
+            font-size: 5rem; /* Pas de grootte aan naar jouw voorkeur */
+        }
+        #home h2.text-5xl {
+            font-size: 2rem; /* Pas de grootte aan naar jouw voorkeur */
+        }
+        #home p.text-xl {
+            font-size: 1.5rem; /* Pas de grootte aan naar jouw voorkeur */
+        }
     }
-
 
     /* Scale images in Sections */
     section img {
