@@ -146,26 +146,25 @@ function App() {
 
             {/*/* skills section */}
             <section id="skills" ref={skillsRef} className="py-20 px-4 sm:px-20 bg-gray-100">
-                <div className="max-w-7xl mx-auto px-20 flex items-center">
-                    <div className="w-1/2 px-15">
+                <div className="max-w-7xl mx-auto px-20 flex flex-col items-center sm:flex-row"> {/* Flex direction gewijzigd naar column op mobiele apparaten */}
+                    <div className="w-full sm:w-1/2 px-15 text-center sm:text-left mb-8 sm:mb-0"> {/* Text alignment toegevoegd */}
                         <h2 className="text-5xl font-bold text-gray-800 mb-4">My Skills</h2>
                         <p className="text-lg text-blue-500">
                             "I have some experience in various aspects of web development and design. My expertise encompasses a wide range of programming languages, frameworks, and design skills. Additionally, I possess problem-solving skills and have experience with project management such as Agile and Scrum. My passion for creativity enables me to devise innovative solutions and elevate my work to a higher level. I am currently seeking a position at a company where I can continue to learn and grow professionally."
                         </p>
+                    <br/>
+                        <div className="w-full flex justify-center items-center"> {/* Horizontale centrering toegevoegd */}
+                            <p className="text-lg text-blue-500">
+                                "I have worked with the following technologies:"
+                            </p>
+                        </div>
                     </div>
-                    {!isSmallScreen && ( // Voeg ! toe om de conditie om te keren
+                    {!isSmallScreen && (
                         <div className="w-1/2">
                             <img className="w-64 h-64 aspect-square profielfoto" src="/img/memoji2.png" alt="Profielfoto" />
                         </div>
                     )}
                 </div>
-                <br/>
-                <div className="w-1/2 flex justify-center items-center skill-icons-container">
-                    <p className="text-lg text-blue-500">
-                        "I have worked with the following technologies:"
-                    </p>
-                </div>
-                <br/>
                 <div className="max-w-7xl mx-auto px-20 flex items-center overflow-hidden"> {/* Voeg overflow-hidden toe aan deze div */}
                     <div id="carousel" className="carousel">
                         <img src="img/html5-logo-31813.png" alt="HTML" className="w-10 h-10 mx-2 skill-icon" />
@@ -173,12 +172,13 @@ function App() {
                         <img src="img/javascript-39410.png" alt="JavaScript" className="w-10 h-10 mx-2 skill-icon" />
                         <img src="img/logo192.png" alt="React" className="w-10 h-10 mx-2 skill-icon" />
                         <img src="img/php-logo.png" alt="PHP" className="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/laravel-logo.png" alt="Laravel" className="w-12 h-10 mx-2 skill-icon" />
+                        <img src="img/laravel.svg" alt="Laravel" className="w-12 h-10 mx-2 skill-icon" />
                         <img src="img/mongodb-logo.png" alt="MongoDB" className="w-10 h-10 mx-2 skill-icon" />
                         <img src="img/mysql-logo.png" alt="MySQL" className="w-10 h-10 mx-2 skill-icon" />
                     </div>
                 </div>
             </section>
+
 
 
             {/* Projecten Section */}
