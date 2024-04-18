@@ -63,18 +63,49 @@
 
 
 
+/* Additional custom styles for mobile responsiveness */
+/* Additional custom styles for mobile responsiveness */
+@media (max-width: 640px) {
+    /* Move text above image in About Section */
+    #about .flex {
+        flex-direction: column;
+    }
+    #about .w-1\/2 { /* Escaping the slash character */
+        width: 100%;
+    }
+    #about .w-1\/2:first-child {
+        margin-bottom: 2rem;
+    }
+    /* Additional custom styles for mobile responsiveness */
+    @media (max-width: 640px) {
+        /* Move text above image in Skills Section */
+        #skills .flex {
+            flex-direction: column;
+        }
+        #skills .w-1\/2 {
+            width: 100%;
+        }
+        #skills .w-1\/2:first-child {
+            margin-bottom: 2rem;
+        }
+
+        /* Center align text in Skills Section */
+        #skills .text-center {
+            text-align: center;
+        }
+
+        /* Position image to the right */
+        #skills .w-1\/2:last-child {
+            margin-right: 0; /* Remove any right margin */
+            vertical-align: middle;
+        }
+    }
 
 
-@keyframes typing {
-    from {
-        width: 0; /* Begin met een breedte van 0 (verborgen) */
+    /* Scale images in Sections */
+    section img {
+        max-width: 100%;
+        height: auto;
     }
-    to {
-        width: auto; /* Eindig met de volledige breedte van de tekst (getypt) */
-    }
+
 }
-
-
-
-
-
