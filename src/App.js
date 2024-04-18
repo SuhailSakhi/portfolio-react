@@ -144,7 +144,7 @@ function App() {
                 </div>
             </section>
 
-            {/* skills section */}
+            {/*/* skills section */}
             <section id="skills" ref={skillsRef} className="py-20 px-4 sm:px-20 bg-gray-100">
                 <div className="max-w-7xl mx-auto px-20 flex items-center">
                     <div className="w-1/2 px-15">
@@ -153,10 +153,13 @@ function App() {
                             "I have some experience in various aspects of web development and design. My expertise encompasses a wide range of programming languages, frameworks, and design skills. Additionally, I possess problem-solving skills and have experience with project management such as Agile and Scrum. My passion for creativity enables me to devise innovative solutions and elevate my work to a higher level. I am currently seeking a position at a company where I can continue to learn and grow professionally."
                         </p>
                     </div>
-                    <div className="w-1/2">
-                        <img className="w-64 h-64 aspect-square profielfoto" src="/img/memoji2.png" alt="Profielfoto" />
-                    </div>
+                    {!isSmallScreen && ( // Voeg ! toe om de conditie om te keren
+                        <div className="w-1/2">
+                            <img className="w-64 h-64 aspect-square profielfoto" src="/img/memoji2.png" alt="Profielfoto" />
+                        </div>
+                    )}
                 </div>
+                <br/>
                 <div className="w-1/2 flex justify-center items-center skill-icons-container">
                     <p className="text-lg text-blue-500">
                         "I have worked with the following technologies:"
@@ -164,24 +167,22 @@ function App() {
                 </div>
                 <br/>
                 <div className="max-w-7xl mx-auto px-20 flex items-center overflow-hidden"> {/* Voeg overflow-hidden toe aan deze div */}
-                    <div id="carousel" class="carousel">
-                        <img src="img/logo-zwart.png" alt="HTML" class="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/logo-zwart.png" alt="CSS" class="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/logo-zwart.png" alt="JavaScript" class="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/logo-zwart.png" alt="React" class="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/logo-zwart.png" alt="PHP" class="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/logo-zwart.png" alt="Laravel" class="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/logo-zwart.png" alt="MongoDB" class="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/logo-zwart.png" alt="Figma" class="w-10 h-10 mx-2 skill-icon" />
-                        <img src="img/logo-zwart.png" alt="Figma" className="w-10 h-10 mx-2 skill-icon"/>
-
+                    <div id="carousel" className="carousel">
+                        <img src="img/html5-logo-31813.png" alt="HTML" className="w-10 h-10 mx-2 skill-icon" />
+                        <img src="img/html5-logo-31821.png" alt="CSS" className="w-10 h-10 mx-2 skill-icon" />
+                        <img src="img/javascript-39410.png" alt="JavaScript" className="w-10 h-10 mx-2 skill-icon" />
+                        <img src="img/logo192.png" alt="React" className="w-10 h-10 mx-2 skill-icon" />
+                        <img src="img/php-logo.png" alt="PHP" className="w-10 h-10 mx-2 skill-icon" />
+                        <img src="img/laravel-logo.png" alt="Laravel" className="w-12 h-10 mx-2 skill-icon" />
+                        <img src="img/mongodb-logo.png" alt="MongoDB" className="w-10 h-10 mx-2 skill-icon" />
+                        <img src="img/mysql-logo.png" alt="MySQL" className="w-10 h-10 mx-2 skill-icon" />
                     </div>
                 </div>
             </section>
 
 
             {/* Projecten Section */}
-            <section id="projects" ref={projectsRef} className="bg-gray-100 py-20 sm:py-40">
+            <section id="projects" ref={projectsRef} className="bg-gray-100 py-40 sm:py-40">
                 <div className="max-w-7xl mx-auto px-4">
                     <h2 className="text-5xl font-bold text-gray-800 mb-8 text-center">My favorite projects</h2>
                     <div className="flex flex-wrap justify-center">
@@ -209,9 +210,9 @@ function App() {
                         {/* Projectkaart 3 */}
                         <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
                             <div className="px-6 py-4">
-                                <img className="w-full" src="/img/project3.jpg" alt="Project 3" />
-                                <div className="font-bold text-xl mb-2">Coming soon (Neural Network)</div>
-                                <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <img className="h-50 w-full" src="/img/logo-zwart.png" alt="Project 3" />
+                                <div className="font-bold text-xl mb-2">(Neural Network)</div>
+                                <p className="text-gray-700 text-base">Coming soon.....</p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
                             </div>

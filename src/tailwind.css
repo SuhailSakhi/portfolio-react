@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .skill-icon {
     margin-right: 1rem; /* Ruimte tussen de icoontjes */
 }
@@ -20,36 +19,37 @@
     text-align: center;
 }
 
-   .typing-animation {
-       overflow: hidden; /* Verberg overlopende tekst */
-       white-space: nowrap; /* Voorkom dat de tekst naar een nieuwe regel gaat */
-       margin: 0 auto; /* Centreer de tekst */
-       animation: typing 3s steps(40, end); /* Pas de animatie toe */
-   }
+.typing-animation {
+    overflow: hidden; /* Verberg overlopende tekst */
+    white-space: nowrap; /* Voorkom dat de tekst naar een nieuwe regel gaat */
+    margin: 0 auto; /* Centreer de tekst */
+    animation: typing 5s steps(40, end); /* Pas de animatie toe */
+}
+
 .carousel {
-    white-space: nowrap;
-    overflow: hidden;
+    overflow: hidden; /* Verberg overlopende inhoud */
+    /* Verwijder white-space en overflow eigenschappen */
 }
 
 .carousel img {
     display: inline-block;
-    width: 10%;
-    height: 50px;
+    width: 10%; /* Pas de breedte van de afbeeldingen aan */
+    height: 50px; /* Houd de hoogte hetzelfde als voorheen */
     margin: 0 10px; /* Adjust margin as needed */
     transition: transform 1s ease-in-out;
 }
 
 .carousel img:hover {
-    transform: scale(1.2); /* Adjust scale factor for hover effect */
+    transform: scale(1.25); /* Adjust scale factor for hover effect */
 }
 
 @keyframes slide {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Adjust the percentage as needed */
+    100% { transform: translateX(calc(-100% + 20px)); } /* Aanpassen aan de totale breedte van de afbeeldingen en marge */
 }
 
 .carousel {
-    animation: slide 10s infinite alternate; /* Adjust duration as needed */
+    animation: slide 10s alternate-reverse infinite; /* Pas de duur van de animatie aan zoals gewenst */
 }
 
 .section {
@@ -61,9 +61,6 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Voeg schaduw toe */
 }
 
-
-
-/* Additional custom styles for mobile responsiveness */
 /* Additional custom styles for mobile responsiveness */
 @media (max-width: 640px) {
     /* Move text above image in About Section */
@@ -76,39 +73,27 @@
     #about .w-1\/2:first-child {
         margin-bottom: 2rem;
     }
-    /* Additional custom styles for mobile responsiveness */
-    @media (max-width: 640px) {
-        /* Move text above image in Skills Section */
-        #skills .flex {
-            flex-direction: column;
-        }
-        #skills .w-1\/2 {
-            width: 100%;
-        }
-        #skills .w-1\/2:first-child {
-            margin-bottom: 2rem;
-        }
 
-        /* Center align text in Skills Section */
-        #skills .text-center {
-            text-align: center;
-        }
+    /* Move text above image in Skills Section */
+    #skills .flex {
+        flex-direction: column;
+    }
+    #skills .w-1\/2 {
+        width: 100%;
+    }
+    #skills .w-1\/2:first-child {
+        margin-bottom: 2rem;
+    }
 
-        /* Position image to the right */
-        #skills .w-1\/2:last-child {
-            margin-right: 0; /* Remove any right margin */
-            vertical-align: middle;
-        }
-        /* Verklein de lettergrootte van de welkomstsectie */
-        #home h1.text-9xl {
-            font-size: 5rem; /* Pas de grootte aan naar jouw voorkeur */
-        }
-        #home h2.text-5xl {
-            font-size: 2rem; /* Pas de grootte aan naar jouw voorkeur */
-        }
-        #home p.text-xl {
-            font-size: 1.5rem; /* Pas de grootte aan naar jouw voorkeur */
-        }
+    /* Center align text in Skills Section */
+    #skills .text-center {
+        text-align: center;
+    }
+
+    /* Position image to the right */
+    #skills .w-1\/2:last-child {
+        margin-right: 0; /* Remove any right margin */
+        vertical-align: middle;
     }
 
     /* Scale images in Sections */
@@ -117,4 +102,37 @@
         height: auto;
     }
 
+    /* Additional styles for Skills section */
+    .skills-section {
+        margin-left: 0; /* Remove the left margin on mobile devices */
+        padding: 0 1rem; /* Add padding to the sides */
+        text-align: center; /* Center the text on mobile devices */
+    }
+
+    .profielfoto {
+        margin: 0 auto; /* Center the photo */
+        display: block; /* Ensure the photo is above the text */
+        margin-bottom: 1rem; /* Add some space below the photo */
+    }
+
+    .skill-icons-container {
+        margin-top: 1rem; /* Add some space above the skill icons */
+    }
+
+    /* Reduce the width of the images in the carousel on mobile devices */
+    .carousel img {
+        width: 50px;
+        height: auto;
+    }
+
+    /* Verklein de lettergrootte van de welkomstsectie */
+    #home h1.text-9xl {
+        font-size: 5rem; /* Pas de grootte aan naar jouw voorkeur */
+    }
+    #home h2.text-5xl {
+        font-size: 2rem; /* Pas de grootte aan naar jouw voorkeur */
+    }
+    #home p.text-xl {
+        font-size: 1.5rem; /* Pas de grootte aan naar jouw voorkeur */
+    }
 }
