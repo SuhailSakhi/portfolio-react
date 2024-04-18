@@ -73,6 +73,10 @@
     #about .w-1\/2:first-child {
         margin-bottom: 2rem;
     }
+        .carousel {
+            animation: none;
+        }
+    
 
     /* Move text above image in Skills Section */
     #skills .flex {
@@ -118,21 +122,8 @@
     .skill-icons-container {
         margin-top: 1rem; /* Add some space above the skill icons */
     }
-    .carousel {
-        display: flex;
-        flex-direction: row;
-        justify-content: center; /* Center align the images */
-        overflow-x: auto; /* Add horizontal scroll for smaller screens */
-        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
-    }
 
-    /* Reduce the width of the images in the carousel on mobile devices */
-    .carousel img {
-        width: 50px; /* Change this value to your preference */
-        height: auto; /* Maintain the aspect ratio */
-        margin: 0 5px; /* Add some margin between the images */
-    }
-    
+
 
     /* Verklein de lettergrootte van de welkomstsectie */
     #home h1.text-9xl {
