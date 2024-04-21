@@ -1,3 +1,4 @@
+// Voeg deze import toe bovenaan je bestand
 import React, { useState, useEffect, useRef } from 'react';
 import './tailwind.css';
 
@@ -5,10 +6,12 @@ function App() {
     const [trail, setTrail] = useState([]);
     const [mouseStopped, setMouseStopped] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalImage, setModalImage] = useState(null);
 
     useEffect(() => {
         const handleResize = () => {
-            setIsSmallScreen(window.innerWidth <= 640); // Define your breakpoint here
+            setIsSmallScreen(window.innerWidth <= 640);
         };
 
         handleResize(); // Initial check
@@ -40,7 +43,6 @@ function App() {
                 clearTimeout(timer);
             };
         } else {
-            // Clear the trail on small screens
             setTrail([]);
         }
     }, [isSmallScreen]);
@@ -48,7 +50,7 @@ function App() {
 
     useEffect(() => {
         if (mouseStopped) {
-            setTrail([]); // Leeg de trail als de muis stopt met bewegen
+            setTrail([]);
         }
     }, [mouseStopped]);
 
@@ -67,6 +69,17 @@ function App() {
             });
         }
     };
+
+    const openModal = (image) => {
+        setModalImage(image);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setModalImage(null);
+    };
+
 
     return (
         <div className="bg-white">
@@ -96,7 +109,7 @@ function App() {
                 </div>
             </nav>
 
-            {/* Naam Section met Animatie */}
+            {/* Name Section met Animatie */}
             <section id="home" ref={homeRef} className={`bg-black text-white py-20 sm:py-40 relative mt-16 sm:mt-0 h-screen ${isSmallScreen ? 'text-lg' : ''}`}>
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center">
@@ -127,10 +140,9 @@ function App() {
                         />
                     ))}
                 </div>
-
             </section>
 
-            {/* Over mij Section */}
+            {/* About Section */}
             <section id="about" ref={aboutRef} className="py-20 sm:py-60 bg-white">
                 <div className="max-w-7xl mx-auto px-4 flex items-center">
                     <div className="w-1/2">
@@ -139,21 +151,22 @@ function App() {
                     <div className="w-1/2 px-6">
                         <h2 className="text-5xl font-bold text-gray-800 mb-4">About Me</h2>
                         <p className="text-lg text-blue-500">
-                            "As a creative developer, I am more than just focused on code. My differentiating factor lies in my ability to come up with out-of-the-box ideas and to research and engage with the target audience in the development process. This enables me to create the most optimal product."                        </p>
+                            "As a creative developer, I am more than just focused on code. My differentiating factor lies in my ability to come up with out-of-the-box ideas and to research and engage with the target audience in the development process. This enables me to create the most optimal product."
+                        </p>
                     </div>
                 </div>
             </section>
 
-            {/*/* skills section */}
+            {/* Skills Section */}
             <section id="skills" ref={skillsRef} className="py-20 px-4 sm:px-20 bg-gray-100">
-                <div className="max-w-7xl mx-auto px-20 flex flex-col items-center sm:flex-row"> {/* Flex direction gewijzigd naar column op mobiele apparaten */}
-                    <div className="w-full sm:w-1/2 px-15  text-center mb-8 sm:mb-0"> {/* Text alignment toegevoegd */}
+                <div className="max-w-7xl mx-auto px-20 flex flex-col items-center sm:flex-row">
+                    <div className="w-full sm:w-1/2 px-15  text-center mb-8 sm:mb-0">
                         <h2 className="text-5xl font-bold text-gray-800 mb-4">My Skills</h2>
                         <p className="text-lg text-blue-500">
-                            "I have some experience in various aspects of web development and design. Additionally, I possess problem-solving skills and have experience with project management such as Agile and Scrum.I am currently seeking a position at a company where I can continue to learn and grow professionally."
+                            "I have some experience in various aspects of web development and design. Additionally, I possess problem-solving skills and have experience with project management such as Agile and Scrum. I am currently seeking a position at a company where I can continue to learn and grow professionally."
                         </p>
-                    <br/>
-                        <div className="w-full flex justify-center items-center"> {/* Horizontale centrering toegevoegd */}
+                        <br />
+                        <div className="w-full flex justify-center items-center">
                             <p className="text-lg text-blue-500">
                                 "I have worked with the following technologies:"
                             </p>
@@ -165,7 +178,7 @@ function App() {
                         </div>
                     )}
                 </div>
-                <div className="max-w-7xl mx-auto px-20 flex items-center overflow-hidden"> {/* Voeg overflow-hidden toe aan deze div */}
+                <div className="max-w-7xl mx-auto px-20 flex items-center overflow-hidden">
                     <div id="carousel" className="carousel">
                         <img src="img/html5-logo-31813.png" alt="HTML" className="w-10 h-10 mx-2 skill-icon" />
                         <img src="img/html5-logo-31821.png" alt="CSS" className="w-10 h-10 mx-2 skill-icon" />
@@ -178,48 +191,73 @@ function App() {
                     </div>
                 </div>
             </section>
-
-
-
-            {/* Projecten Section */}
-            <section id="projects" ref={projectsRef} className="bg-gray-100 py-40 sm:py-40">
+            {/* Projects Section */}
+            <section id="projects" ref={projectsRef} className="bg-gray-100 py-30 sm:py-40">
                 <div className="max-w-7xl mx-auto px-4">
                     <h2 className="text-5xl font-bold text-gray-800 mb-8 text-center">My favorite projects</h2>
-                    <div className="flex flex-wrap justify-center">
-                        {/* Projectkaart 1 */}
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {/* Project 1 */}
+                        <div className="rounded overflow-hidden shadow-lg m-4 card">
+                            <img src="/img/country.png" alt="Project 1" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal("/img/country.png")} />
                             <div className="px-6 py-4">
-                                <img className="w-full" src="/img/project1.jpg" alt="Project 1" />
-                                <div className="font-bold text-xl mb-2">Country Trivia (AI) </div>
-                                <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <div className="font-bold text-xl mb-2">Country Trivia (AI)</div>
+                                <p className="text-gray-700 text-base">A guessing game that picks a random Country and the flag from the Country api and then gives a fact in a prompt to the OpenAI Azure API. You can change the personality of the AI to generate different facts. The game will be live soon.</p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#AI</button>
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#Game</button>
                             </div>
                         </div>
-
-                        {/* Projectkaart 2 */}
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
-                            <img className="w-full" src="/img/project2.jpg" alt="Project 2" />
+                        {/* Project 2 */}
+                        <div className="rounded overflow-hidden shadow-lg m-4 card">
+                            <img src="/img/Studate3.png" alt="Project 2" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal("/img/Studate3.png")} />
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Studate</div>
-                                <p className="text-gray-700 text-base">Back end focussed project where i built a student meeting website where you can make an own account and like other accounts.</p>
+                                <p className="text-gray-700 text-base">A Laravel and MySQL-based project, crafted as a backend-oriented dating platform for students. Users could create profiles and like others'. You can also filter based on age or gender.</p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#MVC Back end</button>
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#laravel</button>
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#MySQL</button>
                             </div>
                         </div>
-                        {/* Projectkaart 3 */}
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
+                        {/* Project 3 */}
+                        <div className="rounded overflow-hidden shadow-lg m-4 card">
+                            <img src="/img/poster.png" alt="Project 3" className="object-cover w-full h-50 hover:cursor-pointer" onClick={() => openModal("/img/poster.png")} />
                             <div className="px-6 py-4">
-                                <img className="h-50 w-full" src="/img/logo-zwart.png" alt="Project 3" />
-                                <div className="font-bold text-xl mb-2">(Neural Network)</div>
-                                <p className="text-gray-700 text-base">Coming soon.....</p>
+                                <div className="font-bold text-xl mb-2">Project Vedute</div>
+                                <p className="text-gray-700 text-base">For my second-year school project, my team was tasked with assisting Vedute, an art exhibition. In this team, my role was as a business technologist, so I worked with BMCs and value propositions. Additionally, I also served as the scrum master. Our main task was to generate publicity. We created posters, designed Instagram posts, and developed a new website and webshop so Vedute could sell tickets and merchandise.</p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#Branding</button>
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">#Scrum</button>
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#target group research</button>
+                            </div>
+                        </div>
+                        {/* Project 4 */}
+                        <div className="rounded overflow-hidden shadow-lg m-4 card">
+                            <img src="/img/Weetjegezond.png" alt="Project 4" className="object-cover w-full h-500 hover:cursor-pointer" onClick={() => openModal("/img/Weetjegezond.png")} />
+                            <div className="px-6 py-4">
+                                <div className="font-bold text-xl mb-2">Weetjegezond</div>
+                                <p className="text-gray-700 text-base">Description of Project XYZ.</p>
+                            </div>
+                            <div className="px-6 pt-4 pb-2">
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#Gamification</button>
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">#Health</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            {/* Modal */}
+            {isModalOpen && (
+                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center" onClick={closeModal}>
+                    <div className="max-w-lg w-full p-4 bg-white rounded shadow-lg" onClick={(e) => e.stopPropagation()}>
+                        <img className="w-full" src={modalImage} alt="Modal" style={{ maxWidth: '100%', height: 'auto', maxHeight: '100vh' }} />
+                        <button className="absolute top-4 right-4 text-xl text-gray-700 hover:text-gray-900" onClick={closeModal}>X</button>
+                    </div>
+                </div>
+            )}
 
             {/* Footer */}
             <footer id="contact" ref={contactRef} className="bg-gray-150 text-gray-700 py-8">
@@ -238,9 +276,6 @@ function App() {
                         <a href="https://www.youtube.com/watch?v=uxpDa-c-4Mc" className="mx-4">
                             <img src="img/logo-zwart.png" alt="logo" className="w-10 h-12" />
                         </a>
-                        {/*<a href="/resume.pdf" download="resume.pdf" className="mx-4">*/}
-                        {/*    <p className="text-3xl font-bold text-gray-800 mb-8">CV</p>*/}
-                        {/*</a>*/}
                     </div>
                 </div>
             </footer>

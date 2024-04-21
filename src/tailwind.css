@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .skill-icon {
     margin-right: 1rem; /* Ruimte tussen de icoontjes */
 }
@@ -23,7 +24,7 @@
     overflow: hidden; /* Verberg overlopende tekst */
     white-space: nowrap; /* Voorkom dat de tekst naar een nieuwe regel gaat */
     margin: 0 auto; /* Centreer de tekst */
-    animation: typing 5s steps(40, end); /* Pas de animatie toe */
+    animation: typing 7.5s steps(40, end); /* Pas de animatie toe */
 }
 
 .carousel {
@@ -72,6 +73,15 @@
     }
     #about .w-1\/2:first-child {
         margin-bottom: 2rem;
+    }
+
+    #projects .flex {
+        flex-direction: column;
+    }
+
+    /* Stel de breedte in op 100% om de kaarten de volledige breedte van de viewport te geven */
+    #projects .w-full {
+        width: 100%;
     }
 
     .carousel {
