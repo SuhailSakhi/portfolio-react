@@ -1,4 +1,3 @@
-// Voeg deze import toe bovenaan je bestand
 import React, { useState, useEffect, useRef } from 'react';
 import './tailwind.css';
 
@@ -8,6 +7,8 @@ function App() {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState(null);
+    const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
         const handleResize = () => {
@@ -80,6 +81,47 @@ function App() {
         setModalImage(null);
     };
 
+
+    const projects = [
+        {
+            name: 'Country Trivia (AI)',
+            images: [
+                '/img/country.png',
+                '/img/country2.png',
+            ]
+        },
+        {
+            name: 'Studate',
+            images: [
+                '/img/Studate3.png',
+                `/img/studate2.png`,
+                '/img/studate4.png',
+                '/img/studate5.png',
+
+            ]
+        },
+        {
+            name: 'Vedute',
+            images: [
+                '/img/poster.png',
+                '/img/poster2.png',
+                '/img/poster3.png',
+
+            ]
+        },
+    ];
+    const prevImage = () => {
+        setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? projects[currentProjectIndex].images.length - 1 : prevIndex - 1));
+    };
+
+    const nextImage = () => {
+        setCurrentImageIndex((prevIndex) => (prevIndex === projects[currentProjectIndex].images.length - 1 ? 0 : prevIndex + 1));
+    };
+
+    const selectProject = (index) => {
+        setCurrentProjectIndex(index);
+        setCurrentImageIndex(0); // Reset the image index when a new project is selected
+    };
 
     return (
         <div className="bg-white">
@@ -198,9 +240,13 @@ function App() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {/* Project 1 */}
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
-                            <img src="/img/country.png" alt="Project 1" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal("/img/country.png")} />
+                            <div className="carousel2 relative">
+                                <button onClick={() => prevImage(currentProjectIndex)} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'<'}</button>
+                                <img src={projects[currentProjectIndex].images[currentImageIndex]} alt="Project 1" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal(projects[currentProjectIndex].images[currentImageIndex])} />
+                                <button onClick={() => nextImage(currentProjectIndex)} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'>'}</button>
+                            </div>
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Country Trivia (AI)</div>
+                                <div className="font-bold text-xl mb-2">{projects[currentProjectIndex].name}</div>
                                 <p className="text-gray-700 text-base">A guessing game that picks a random Country and the flag from the Country api and then gives a fact in a prompt to the OpenAI Azure API. You can change the personality of the AI to generate different facts. The game will be live soon.</p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
@@ -210,7 +256,11 @@ function App() {
                         </div>
                         {/* Project 2 */}
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
-                            <img src="/img/Studate3.png" alt="Project 2" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal("/img/Studate3.png")} />
+                            <div className="carousel3 relative">
+                                {/*<button onClick={() => prevImage()} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'<'}</button>*/}
+                                <img src={projects[1].images[currentImageIndex]} alt="Project 2" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal(projects[1].images[currentImageIndex])} />
+                                {/*<button onClick={() => nextImage()} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'>'}</button>*/}
+                            </div>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Studate</div>
                                 <p className="text-gray-700 text-base">A Laravel and MySQL-based project, crafted as a backend-oriented dating platform for students. Users could create profiles and like others'. You can also filter based on age or gender.</p>
@@ -223,7 +273,11 @@ function App() {
                         </div>
                         {/* Project 3 */}
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
-                            <img src="/img/poster.png" alt="Project 3" className="object-cover w-full h-50 hover:cursor-pointer" onClick={() => openModal("/img/poster.png")} />
+                            <div className="carousel4 relative">
+                                {/*<button onClick={() => prevImage(currentProjectIndex)} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'<'}</button>*/}
+                                <img src="/img/poster.png" alt="Project 3" className="object-cover w-full h-50 hover:cursor-pointer" onClick={() => openModal("/img/poster.png")} />
+                                {/*<button onClick={() => nextImage(currentProjectIndex)} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'>'}</button>*/}
+                            </div>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Project Vedute</div>
                                 <p className="text-gray-700 text-base">For my second-year school project, my team was tasked with assisting Vedute, an art exhibition. In this team, my role was as a business technologist, so I worked with BMCs and value propositions. Additionally, I also served as the scrum master. Our main task was to generate publicity. We created posters, designed Instagram posts, and developed a new website and webshop so Vedute could sell tickets and merchandise.</p>
@@ -239,7 +293,7 @@ function App() {
                             <img src="/img/Weetjegezond.png" alt="Project 4" className="object-cover w-full h-500 hover:cursor-pointer" onClick={() => openModal("/img/Weetjegezond.png")} />
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Weetjegezond</div>
-                                <p className="text-gray-700 text-base">Description of Project XYZ.</p>
+                                <p className="text-gray-700 text-base">"Weetjegezond is an upcoming smartphone app aimed at helping people lead healthier lives through gamification. Similar to Duolingo, users will tackle daily challenges designed to promote healthier habits. Please note that the app is still in development."</p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#Gamification</button>
@@ -273,9 +327,9 @@ function App() {
                         <a href="mailto:suhail_909@outlook.com" className="mx-4">
                             <img src="img/email.png" alt="Email" className="w-12 h-12" />
                         </a>
-                        <a href="https://www.youtube.com/watch?v=uxpDa-c-4Mc" className="mx-4">
-                            <img src="img/logo-zwart.png" alt="logo" className="w-10 h-12" />
-                        </a>
+                        {/*<a href="https://www.youtube.com/watch?v=uxpDa-c-4Mc" className="mx-4">*/}
+                        {/*    <img src="img/logo-zwart.png" alt="logo" className="w-10 h-12" />*/}
+                        {/*</a>*/}
                     </div>
                 </div>
             </footer>

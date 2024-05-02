@@ -111,9 +111,9 @@
     }
 
     /* Center align text in Skills Section */
-    #skills .text-center {
-        text-align: center;
-    }
+    /*#skills .text-center {*/
+    /*    text-align: center;  */
+    /*}*/
 
     /* Position image to the right */
     #skills .w-1\/2:last-child {
