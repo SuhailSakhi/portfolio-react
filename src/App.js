@@ -258,7 +258,8 @@ function App() {
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
                             <div className="carousel3 relative">
                                 {/*<button onClick={() => prevImage()} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'<'}</button>*/}
-                                <img src={projects[1].images[currentImageIndex]} alt="Project 2" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal(projects[1].images[currentImageIndex])} />
+                                {/*<img src={projects[1].images[currentImageIndex]} alt="Project 2" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal(projects[1].images[currentImageIndex])} />*/}
+                                <img src="img/Studate-home.png" alt="Project 2" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal("img/Studate-home.png")} />
                                 {/*<button onClick={() => nextImage()} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'>'}</button>*/}
                             </div>
                             <div className="px-6 py-4">
