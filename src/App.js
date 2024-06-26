@@ -242,63 +242,77 @@ function App() {
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
                             <div className="carousel2 relative">
                                 <button onClick={() => prevImage(currentProjectIndex)} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'<'}</button>
-                                <img src={projects[currentProjectIndex].images[currentImageIndex]} alt="Project 1" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal(projects[currentProjectIndex].images[currentImageIndex])} />
+                                <img src={projects[currentProjectIndex].images[currentImageIndex]} alt="Project 1" className="object-cover w-full fixed-height hover:cursor-pointer" onClick={() => openModal(projects[currentProjectIndex].images[currentImageIndex])} />
                                 <button onClick={() => nextImage(currentProjectIndex)} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'>'}</button>
                             </div>
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">{projects[currentProjectIndex].name}</div>
-                                <p className="text-gray-700 text-base">A guessing game that picks a random Country and the flag from the Country api and then gives a fact in a prompt to the OpenAI Azure API. You can change the personality of the AI to generate different facts. The game will be live soon.</p>
-                            </div>
-                            <div className="px-6 pt-4 pb-2">
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#AI</button>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#Game</button>
+                            <div className="px-6 py-4 flex flex-col justify-between">
+                                <div>
+                                    <div className="font-bold text-xl mb-2">{projects[currentProjectIndex].name}</div>
+                                    <p className="text-gray-700 text-base">A guessing game that picks a random Country and the flag from the Country api and then gives a fact in a prompt to the OpenAI Azure API. You can change the personality of the AI to generate different facts. The game will be live soon.</p>
+                                </div>
+                                <div className="px-6 pt-4 pb-2">
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#AI</button>
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#Game</button>
+                                </div>
                             </div>
                         </div>
                         {/* Project 2 */}
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
                             <div className="carousel3 relative">
-                                {/*<button onClick={() => prevImage()} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'<'}</button>*/}
-                                {/*<img src={projects[1].images[currentImageIndex]} alt="Project 2" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal(projects[1].images[currentImageIndex])} />*/}
-                                <img src="img/Studate-home.png" alt="Project 2" className="object-cover w-full h-auto hover:cursor-pointer" onClick={() => openModal("img/Studate-home.png")} />
-                                {/*<button onClick={() => nextImage()} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'>'}</button>*/}
+                                <img src="img/Studate-home.png" alt="Project 2" className="object-cover w-full fixed-height hover:cursor-pointer" onClick={() => openModal("img/Studate-home.png")} />
                             </div>
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Studate</div>
-                                <p className="text-gray-700 text-base">A Laravel and MySQL-based project, crafted as a backend-oriented dating platform for students. Users could create profiles and like others'. You can also filter based on age or gender.</p>
-                            </div>
-                            <div className="px-6 pt-4 pb-2">
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#MVC Back end</button>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#laravel</button>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#MySQL</button>
+                            <div className="px-6 py-4 flex flex-col justify-between">
+                                <div>
+                                    <div className="font-bold text-xl mb-2">Studate</div>
+                                    <p className="text-gray-700 text-base">A Laravel and MySQL-based project, crafted as a backend-oriented dating platform for students. Users could create profiles and like others'. You can also filter based on age or gender.</p>
+                                </div>
+                                <div className="px-6 pt-4 pb-2">
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#MVC Back end</button>
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#laravel</button>
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#MySQL</button>
+                                </div>
                             </div>
                         </div>
                         {/* Project 3 */}
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
-                            <div className="carousel4 relative">
-                                {/*<button onClick={() => prevImage(currentProjectIndex)} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'<'}</button>*/}
-                                <img src="/img/poster.png" alt="Project 3" className="object-cover w-full h-50 hover:cursor-pointer" onClick={() => openModal("/img/poster.png")} />
-                                {/*<button onClick={() => nextImage(currentProjectIndex)} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'>'}</button>*/}
+                            <div className="carousel4 relative fixed-height">
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src="https://www.youtube.com/embed/rk4RZ-d_pjg"
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="hover:cursor-pointer"
+                                ></iframe>
                             </div>
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Project Vedute</div>
-                                <p className="text-gray-700 text-base">For my second-year school project, my team was tasked with assisting Vedute, an art exhibition. In this team, my role was as a business technologist, so I worked with BMCs and value propositions. Additionally, I also served as the scrum master. Our main task was to generate publicity. We created posters, designed Instagram posts, and developed a new website and webshop so Vedute could sell tickets and merchandise.</p>
-                            </div>
-                            <div className="px-6 pt-4 pb-2">
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#Branding</button>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">#Scrum</button>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full">#target group research</button>
+                            <div className="px-6 py-4 flex flex-col justify-between">
+                                <div>
+                                    <div className="font-bold text-xl mb-2">Field Finder Rotterdam</div>
+                                    <p className="text-gray-700 text-base">
+                                        Football Field Finder is a mobile application that helps you find the nearest football field in Rotterdam. It is built using React Native and Expo-go.
+                                    </p>
+                                </div>
+                                <div className="px-6 pt-4 pb-2">
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#React Native</button>
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">#Mobile</button>
+                                </div>
                             </div>
                         </div>
+
                         {/* Project 4 */}
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
-                            <img src="/img/Weetjegezond.png" alt="Project 4" className="object-cover w-full h-500 hover:cursor-pointer" onClick={() => openModal("/img/Weetjegezond.png")} />
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Weetjegezond</div>
-                                <p className="text-gray-700 text-base">"Weetjegezond is an upcoming smartphone app aimed at helping people lead healthier lives through gamification. Similar to Duolingo, users will tackle daily challenges designed to promote healthier habits. Please note that the app is still in development."</p>
-                            </div>
-                            <div className="px-6 pt-4 pb-2">
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#Gamification</button>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">#Health</button>
+                            <img src="/img/Weetjegezond.png" alt="Project 4" className="object-cover w-full fixed-height hover:cursor-pointer" onClick={() => openModal("/img/Weetjegezond.png")} />
+                            <div className="px-6 py-4 flex flex-col justify-between">
+                                <div>
+                                    <div className="font-bold text-xl mb-2">Weetjegezond</div>
+                                    <p className="text-gray-700 text-base">"Weetjegezond is an upcoming smartphone app aimed at helping people lead healthier lives through gamification. Similar to Duolingo, users will tackle daily challenges designed to promote healthier habits. Please note that the app is still in development."</p>
+                                </div>
+                                <div className="px-6 pt-4 pb-2">
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">#Gamification</button>
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">#Health</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -313,6 +327,7 @@ function App() {
                     </div>
                 </div>
             )}
+
 
             {/* Footer */}
             <footer id="contact" ref={contactRef} className="bg-gray-150 text-gray-700 py-8">

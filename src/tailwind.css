@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .skill-icon {
     margin-right: 1rem; /* Ruimte tussen de icoontjes */
 }
@@ -62,6 +61,23 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Voeg schaduw toe */
 }
 
+.fixed-height {
+    height: 315px; /* Or any other fixed height you prefer */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.carousel2, .carousel3, .carousel4 {
+    position: relative;
+    width: 100%;
+    height: 315px; /* Match this with the .fixed-height */
+}
+
 /* Additional custom styles for mobile responsiveness */
 @media (max-width: 640px) {
     /* Move text above image in About Section */
@@ -88,7 +104,7 @@
         overflow: visible; /* Zorg ervoor dat de inhoud van de carousel zichtbaar is */
         white-space: nowrap; /* Voorkom dat tekst naar een nieuwe regel gaat */
         margin: 0 auto; /* Centreer de carousel */
-    width: 100%; /* Maak de carousel schermvullend */
+        width: 100%; /* Maak de carousel schermvullend */
     }
 
     .carousel img {
@@ -97,7 +113,6 @@
         margin: 0 10px; /* Aanpassen van de marge indien nodig */
         transition: none; /* Verwijder de hover-effect overgang */
     }
-
 
     /* Move text above image in Skills Section */
     #skills .flex {
@@ -144,7 +159,11 @@
         margin-top: 1rem; /* Add some space above the skill icons */
     }
 
-
+    @media (max-width: 640px) {
+        #projects .grid-cols-1 {
+            grid-template-columns: 1fr; /* Zorg ervoor dat de grid één kolom heeft op kleine schermen */
+        }
+    }
 
     /* Verklein de lettergrootte van de welkomstsectie */
     #home h1.text-9xl {
@@ -156,4 +175,5 @@
     #home p.text-xl {
         font-size: 1.5rem; /* Pas de grootte aan naar jouw voorkeur */
     }
+
 }
