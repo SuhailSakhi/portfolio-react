@@ -240,10 +240,17 @@ function App() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {/* Project 1 */}
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
-                            <div className="carousel2 relative">
-                                <button onClick={() => prevImage(currentProjectIndex)} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'<'}</button>
-                                <img src={projects[currentProjectIndex].images[currentImageIndex]} alt="Project 1" className="object-cover w-full fixed-height hover:cursor-pointer" onClick={() => openModal(projects[currentProjectIndex].images[currentImageIndex])} />
-                                <button onClick={() => nextImage(currentProjectIndex)} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white font-bold py-2 px-4 rounded-full">{'>'}</button>
+                            <div className="relative fixed-height">
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src="https://www.youtube.com/embed/3zsaGY8SLe8"  // Vervang de src met je YouTube-video link
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="hover:cursor-pointer"
+                                ></iframe>
                             </div>
                             <div className="px-6 py-4 flex flex-col justify-between">
                                 <div>
@@ -256,6 +263,8 @@ function App() {
                                 </div>
                             </div>
                         </div>
+
+
                         {/* Project 2 */}
                         <div className="rounded overflow-hidden shadow-lg m-4 card">
                             <div className="carousel3 relative">
