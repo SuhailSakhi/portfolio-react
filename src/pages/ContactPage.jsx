@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 export default function ContactPage() {
     const dummyRef = useRef(null);
 
+
     return (
         <div className="min-h-screen bg-[#fdfaf6] text-[#1D130C]">
             id="contact"
