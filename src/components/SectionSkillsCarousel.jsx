@@ -1,46 +1,53 @@
+// components/SectionSkills.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import FadeInWhenVisible from './FadeInWhenVisible';
 
-const cards = [
-    {
-        title: '💻 Creative Developer',
-        text: 'I build smooth UIs with React, Tailwind, and animations. Focused on clarity, usability, and flow.',
-    },
-    {
-        title: '🌱 Beyond Code',
-        text: 'Fascinated by design, psychology, and meaningful digital experiences.',
-    },
-    {
-        title: '🎨 Design Thinking',
-        text: 'From wireframes to mockups, I use Figma and Framer to design smart user journeys.',
-    },
-];
+export default function SectionSkillsCarousel({ skillsRef }) {
+    const { t } = useTranslation();
 
-export default function SectionSkillsCarousel() {
     return (
-        <section className="bg-[#f4f1eb] py-28 px-6">
+        <section ref={skillsRef} id="skills" className="bg-[#1D130C] py-28 px-6 text-white">
             <div className="max-w-6xl mx-auto text-center mb-14">
                 <FadeInWhenVisible direction="up">
-                    <h2 className="text-4xl sm:text-5xl font-semibold text-[#1D130C]">
-                        What I Bring to the Table
-                    </h2>
+                    <h2 className="text-4xl sm:text-5xl font-semibold">{t('skills.title')}</h2>
                 </FadeInWhenVisible>
             </div>
 
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 px-4">
-                {cards.map((card, index) => (
-                    <FadeInWhenVisible key={index} delay={index * 0.2} direction="up">
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ type: 'spring', stiffness: 250 }}
-                            className="w-full h-[340px] bg-[#1D130C] text-[#f4f1eb] p-6 rounded-2xl shadow-md hover:shadow-xl flex flex-col justify-between"
-                        >
-                            <h3 className="text-xl font-bold mb-4">{card.title}</h3>
-                            <p className="text-[#d9c6b7] text-sm">{card.text}</p>
-                        </motion.div>
-                    </FadeInWhenVisible>
-                ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                <FadeInWhenVisible direction="up">
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: 'spring', stiffness: 250, damping: 20 }}
+                        className="bg-[#fdfaf6] text-[#1D130C] p-8 rounded-2xl shadow-md hover:shadow-xl h-full flex flex-col justify-between"
+                    >
+                        <h3 className="text-2xl font-bold mb-4">🧠 {t('skills.codingTitle')}</h3>
+                        <p className="text-[#4e3c2d]">{t('skills.codingText')}</p>
+                    </motion.div>
+                </FadeInWhenVisible>
+
+                <FadeInWhenVisible direction="up" delay={0.2}>
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: 'spring', stiffness: 250, damping: 20 }}
+                        className="bg-[#fdfaf6] text-[#1D130C] p-8 rounded-2xl shadow-md hover:shadow-xl h-full flex flex-col justify-between"
+                    >
+                        <h3 className="text-2xl font-bold mb-4">🚀 {t('skills.entrepreneurshipTitle')}</h3>
+                        <p className="text-[#4e3c2d]">{t('skills.entrepreneurshipText')}</p>
+                    </motion.div>
+                </FadeInWhenVisible>
+
+                <FadeInWhenVisible direction="up" delay={0.4}>
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: 'spring', stiffness: 250, damping: 20 }}
+                        className="bg-[#fdfaf6] text-[#1D130C] p-8 rounded-2xl shadow-md hover:shadow-xl h-full flex flex-col justify-between"
+                    >
+                        <h3 className="text-2xl font-bold mb-4">🌍 {t('skills.researchTitle')}</h3>
+                        <p className="text-[#4e3c2d]">{t('skills.researchText')}</p>
+                    </motion.div>
+                </FadeInWhenVisible>
             </div>
         </section>
     );

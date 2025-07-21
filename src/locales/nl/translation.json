@@ -1,0 +1,39 @@
+{
+  "navbar": {
+    "brand": "Suhail",
+    "about": "Over mij",
+    "skills": "Vaardigheden",
+    "projects": "Projecten",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome": "Welkom",
+    "intro": {
+      "pre": "Ik ben",
+      "name": "Suhail Sakhizadh"
+    },
+    "subtitle": "Student Creative Technologist",
+    "button": "Meer over mij"
+  },
+  "about": {
+    "title": "Wie ben ik?",
+    "description": "Als creatieve developer richt ik me niet alleen op code. Wat mij onderscheidt, is mijn vermogen om originele ideeën te bedenken, gebruikersgericht onderzoek te doen en de doelgroep actief te betrekken bij het ontwikkelproces met als doel betekenisvolle en impactvolle digitale producten te creëren."
+  },
+  "ambitions": {
+    "title": "Mijn Visie & Drijfveren",
+    "developerTitle": "Creatieve Developer",
+    "developerText":"Ik haal plezier uit het tot leven brengen van mijn ideeën niet alleen als functionerende producten, maar als hulpmiddelen die écht iets betekenen voor mensen. Voor mij is development een manier om verbeelding om te zetten in impact.",
+    "beyondTitle": "Meer dan Code",
+    "beyondText": "Buiten development houd ik me graag bezig met design en de zakelijke kant van technologie. Ik denk niet alleen na over hoe iets werkt, maar ook waarom het ertoe doet en hoe het past binnen het grotere geheel."
+  },
+  "skills": {
+    "title": "Mijn Vaardigheden",
+    "codingTitle": "Programmeren",
+    "codingText": "Ik heb ervaring met JavaScript, React, React Native, Expo Go, Node.js, HTML, CSS en Tailwind. Daarnaast beschik ik over kennis van API's en AI-integraties.",
+    "entrepreneurshipTitle": "Ondernemerschap",
+    "entrepreneurshipText": "Ik hou van pitchen, denken vanuit de gebruiker en werk graag met agile methodes zoals Scrum. Leiderschap en teamcoördinatie zijn mijn sterke kanten.",
+    "researchTitle": "Impact & Design",
+    "researchText": "Ik ben gepassioneerd over duurzame ontwerpen, gamification en doelgroeponderzoek waarmee ik écht impact kan maken."
+  }
+
+}

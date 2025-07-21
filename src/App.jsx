@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../src/tailwind.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './tailwind.css';
+import './i18n';
+
 import Navbar from './components/Navbar';
 import SectionHome from './components/SectionHome';
 import SectionAbout from './components/SectionAbout';
-import Footer from './components/Footer';
-import ImageModal from './components/ImageModal';
-import SectionContact from './components/SectionContact';
 import SectionAmbitions from './components/SectionAmbitions';
 import SectionSkillsCarousel from './components/SectionSkillsCarousel';
-
+import SectionContact from './components/SectionContact';
+import ImageModal from './components/ImageModal';
+import ProjectsPage from './pages/ProjectsPage'; // Nieuw!
 
 function App() {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -18,15 +20,13 @@ function App() {
     const homeRef = useRef(null);
     const aboutRef = useRef(null);
     const skillsRef = useRef(null);
-    const projectsRef = useRef(null);
     const contactRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth <= 640);
         };
-
-        handleResize(); // Initial check
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -52,24 +52,30 @@ function App() {
     };
 
     return (
-        <div className="bg-white">
-            <Navbar
-                scrollToSection={scrollToSection}
-                refs={{ homeRef, aboutRef, skillsRef, projectsRef, contactRef }}
-            />
-            <SectionHome
-                homeRef={homeRef}
-                aboutRef={aboutRef}
-                scrollToSection={scrollToSection}
-                isSmallScreen={isSmallScreen}
-            />
-            <SectionAbout aboutRef={aboutRef} />
-            <SectionAmbitions />
-            <SectionSkillsCarousel />
-            <SectionContact contactRef={contactRef} />
-            {/*<Footer contactRef={contactRef} />*/}
-            {isModalOpen && <ImageModal modalImage={modalImage} closeModal={closeModal} />}
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={
+                    <div className="bg-white">
+                        <Navbar
+                            scrollToSection={scrollToSection}
+                            refs={{ homeRef, aboutRef, skillsRef, contactRef }}
+                        />
+                        <SectionHome
+                            homeRef={homeRef}
+                            aboutRef={aboutRef}
+                            scrollToSection={scrollToSection}
+                            isSmallScreen={isSmallScreen}
+                        />
+                        <SectionAbout aboutRef={aboutRef} />
+                        <SectionAmbitions />
+                        <SectionSkillsCarousel skillsRef={skillsRef} />
+                        <SectionContact contactRef={contactRef} />
+                        {isModalOpen && <ImageModal modalImage={modalImage} closeModal={closeModal} />}
+                    </div>
+                } />
+                <Route path="/projects" element={<ProjectsPage />} />
+            </Routes>
+        </Router>
     );
 }
 

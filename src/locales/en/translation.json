@@ -1,0 +1,40 @@
+{
+  "navbar": {
+    "brand": "Suhail",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "intro": {
+      "pre": "I am",
+      "name": "Suhail Sakhizadh"
+    },
+    "subtitle": "Student Creative Technologist",
+    "button": "More about me"
+  },
+  "about": {
+    "title": "Who am I?",
+    "description": "As a creative developer, I'm not just focused on code. What sets me apart is my ability to generate original ideas, conduct user-centered research, and actively involve the audience in the design process all to create meaningful and impactful digital products."
+  },
+  "ambitions": {
+    "title": "My Vision & Drive",
+    "developerTitle": "Creative Developer",
+    "developerText": "I find joy in bringing my ideas to life not just as functional products, but as tools that truly help people. For me, development is a way to turn imagination into impact.",
+    "beyondTitle": "Beyond Code",
+    "beyondText":"Beyond development, I’m deeply interested in design and the business side of technology. I enjoy thinking not only about how things work, but also why they matter and how they fit into a bigger picture."
+  },
+  "skills": {
+    "title": "My Skills",
+    "codingTitle": "Coding",
+    "codingText": "I have experience with JavaScript, React, React Native, Expo Go, Node.js, HTML, CSS, and Tailwind. I also have knowledge of APIs and AI integrations.",
+    "entrepreneurshipTitle": "Entrepreneurship",
+    "entrepreneurshipText": "I love pitching, thinking from a user’s perspective, and applying agile methods like Scrum. Leadership and team alignment are my strengths.",
+    "researchTitle": "Impact & Design",
+    "researchText": "I'm passionate about creating impact through sustainable design, gamification, and target group research that truly matters."
+  }
+
+
+}

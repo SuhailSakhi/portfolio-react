@@ -17,7 +17,6 @@ export default function SectionContact({ contactRef }) {
 
                 <FadeInWhenVisible delay={0.2} direction="up">
                     <p className="text-[#3a2e27] text-lg mb-10 leading-relaxed">
-                        Heb je een project, idee of gewoon een vraag? Stuur me gerust een bericht via LinkedIn of e-mail.
                     </p>
                 </FadeInWhenVisible>
 
