@@ -1,44 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, useReducedMotion, useSpring } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import FadeInWhenVisible from './FadeInWhenVisible';
+import WordWall from './WordWall';
 
-export default function SectionHome({ homeRef, scrollToSection, aboutRef, isSmallScreen }) {
+export default function SectionHome({ homeRef }) {
     const { t } = useTranslation();
+    const reducedMotion = useReducedMotion();
+    const [cursorVisible, setCursorVisible] = useState(false);
+    const cursorX = useSpring(0, { stiffness: 220, damping: 28 });
+    const cursorY = useSpring(0, { stiffness: 220, damping: 28 });
+    const moveCursor = (event) => {
+        if (reducedMotion || event.pointerType !== 'mouse') return;
+        const bounds = event.currentTarget.getBoundingClientRect();
+        const x = event.clientX - bounds.left;
+        const y = event.clientY - bounds.top;
+        if (!cursorVisible) {
+            cursorX.jump(x);
+            cursorY.jump(y);
+            setCursorVisible(true);
+        } else {
+            cursorX.set(x);
+            cursorY.set(y);
+        }
+    };
 
     return (
         <section
             id="home"
             ref={homeRef}
-            className={`relative h-screen mt-16 sm:mt-0 flex items-center justify-center overflow-hidden bg-[#fdfaf6]`}
+            className="hero-section editorial-hero"
+            onPointerMove={moveCursor}
+            onPointerLeave={() => setCursorVisible(false)}
         >
-            <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-                <FadeInWhenVisible direction="up">
-                    <h1 className="text-5xl text-[#000500] sm:text-7xl md:text-9xl font-bold flex items-center justify-center">
-                        {t('home.welcome')}
-                        <img className="w-10 sm:w-12 h-auto ml-2" src="/img/wave.png" alt="wave" />
+            {!reducedMotion && (
+                <motion.div
+                    className="hero-cursor-ring"
+                    aria-hidden="true"
+                    style={{ left: cursorX, top: cursorY, opacity: cursorVisible ? 1 : 0 }}
+                />
+            )}
+            <div className="hero-editorial-layout">
+                <div className="hero-editorial-copy">
+                    <h1 className="hero-title home-headline" aria-label="Suhail Sakhizadh">
+                        {['Suhail', 'Sakhizadh'].map((name, wordIndex) => (
+                            <React.Fragment key={name}>
+                                {wordIndex > 0 && <>{' '}<br /></>}
+                                {Array.from(name).map((letter, index) => (
+                                    <span className="name-letter" aria-hidden="true" key={index}>{letter}</span>
+                                ))}
+                            </React.Fragment>
+                        ))}
                     </h1>
-                </FadeInWhenVisible>
-
-                <FadeInWhenVisible delay={0.2} direction="up">
-                    <h2 className="text-3xl text-[#1e1e1e] sm:text-5xl font-bold mt-4">
-                        {t('home.intro.pre')} <span className="text-[#362417]">{t('home.intro.name')}</span>
-                    </h2>
-                </FadeInWhenVisible>
-
-                <FadeInWhenVisible delay={0.4} direction="up">
-                    <p className="mt-6 text-lg sm:text-xl font-medium text-[#1e1e1e]">
-                        {t('home.subtitle')}
-                    </p>
-                </FadeInWhenVisible>
-
-                <FadeInWhenVisible delay={0.6} direction="up">
-                    <button
-                        className="mt-6 inline-block bg-[#362417] hover:bg-[#1D130C] text-white font-semibold py-3 px-6 rounded-full transition-all shadow-md"
-                        onClick={(e) => scrollToSection(aboutRef, e)}
-                    >
-                        {t('home.button')}
-                    </button>
-                </FadeInWhenVisible>
+                    <p className="hero-copy">{t('home.subtitle')}</p>
+                    <p className="hero-disciplines">Research · Product Design · Prototyping · Development</p>
+                    <Link className="hero-project-link" to="/projects">{t('home.projectsButton')} <ArrowUpRight size={21} aria-hidden="true" /></Link>
+                </div>
+                <WordWall />
             </div>
         </section>
     );

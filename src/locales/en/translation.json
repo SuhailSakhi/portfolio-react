@@ -4,37 +4,72 @@
     "about": "About",
     "skills": "Skills",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode"
   },
   "home": {
     "welcome": "Welcome",
+    "headline": "Suhail Sakhizadh",
     "intro": {
       "pre": "I am",
       "name": "Suhail Sakhizadh"
     },
-    "subtitle": "Student Creative Technologist",
-    "button": "More about me"
+    "subtitle": "I research problems, talk to users and translate insights into digital products.",
+    "selectedWork": "Selected work",
+    "button": "About me",
+    "projectsButton": "My projects",
+    "explorerLabel": "Explore my approach",
+    "explorerTitle": "How I work",
+    "approaches": {
+      "research": {
+        "title": "Research",
+        "text": "I start by asking questions, listening and understanding the problem. My experience with Gen Z helps me focus my research while leaving room for what users themselves have to say."
+      },
+      "design": {
+        "title": "Develop concepts",
+        "text": "I connect research insights to possible solutions. I explore different directions and discuss ideas with others to develop a considered concept."
+      },
+      "build": {
+        "title": "Prototype",
+        "text": "I make ideas tangible through flows, screens and interactive prototypes. This lets others experience a solution and helps me test design decisions. My technical knowledge helps me develop those prototypes."
+      }
+    }
   },
   "about": {
-    "title": "Who am I?",
-    "description": "As a creative developer, I'm not just focused on code. What sets me apart is my ability to generate original ideas, conduct user-centered research, and actively involve the audience in the design process all to create meaningful and impactful digital products."
+    "title": "About me",
+    "description": "I enjoy getting involved while the question is still open. What is happening, who is affected and which direction is worth exploring? That's the part that gets me thinking.",
+    "descriptionExtra": "In a team, I contribute by researching, connecting insights and making ideas concrete. I develop concepts into prototypes, discuss the decisions and use feedback to refine them.",
+    "photoAlt": "Portrait of Suhail Sakhizadh",
+    "specialtyTitle": "My specialisation: Gen Z",
+    "specialtyText": "I've created many projects for Gen Z and developed my expertise with this audience through that work. I bring this experience to research, concept development and UX/UI, while continuing to investigate what the specific users of each project need.",
+    "pillars": {
+      "strategy": "Start with the why",
+      "build": "Make ideas tangible",
+      "people": "Design with people"
+    }
   },
   "ambitions": {
-    "title": "My Vision & Drive",
-    "developerTitle": "Creative Developer",
-    "developerText": "I find joy in bringing my ideas to life not just as functional products, but as tools that truly help people. For me, development is a way to turn imagination into impact.",
-    "beyondTitle": "Beyond Code",
-    "beyondText":"Beyond development, I’m deeply interested in design and the business side of technology. I enjoy thinking not only about how things work, but also why they matter and how they fit into a bigger picture."
+    "title": "What drives me",
+    "developerTitle": "Room for ideas",
+    "developerText": "I enjoy thinking of different ways to approach a problem. Sketching and discussing ideas helps me discover which directions deserve further exploration.",
+    "beyondTitle": "Thinking together",
+    "beyondText": "I like contributing ideas and understanding how others see a problem. Different perspectives help me recognise my own assumptions and improve a concept.",
+    "researchTitle": "Understanding people",
+    "researchText": "I want to understand what people do, where they struggle and why. That curiosity is the starting point for my research and design decisions."
   },
   "skills": {
-    "title": "My Skills",
-    "codingTitle": "Coding",
-    "codingText": "I have experience with JavaScript, React, React Native, Expo Go, Node.js, HTML, CSS, and Tailwind. I also have knowledge of APIs and AI integrations.",
-    "entrepreneurshipTitle": "Entrepreneurship",
-    "entrepreneurshipText": "I love pitching, thinking from a user’s perspective, and applying agile methods like Scrum. Leadership and team alignment are my strengths.",
-    "researchTitle": "Impact & Design",
-    "researchText": "I'm passionate about creating impact through sustainable design, gamification, and target group research that truly matters."
+    "title": "What I bring",
+    "codingTitle": "Prototyping",
+    "codingText": "I make concepts tangible through flows, interfaces and interactive prototypes. My knowledge of React and other web technologies also lets me create working prototypes to explore ideas.",
+    "entrepreneurshipTitle": "Concept development",
+    "entrepreneurshipText": "I turn research insights into ideas, explore possible directions and explain my choices. I present concepts and work with others to develop them further.",
+    "researchTitle": "Research",
+    "researchText": "I investigate needs and involve users in the design process. My experience with many Gen Z projects helps me interpret insights and ask focused questions."
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Want to know more about my projects, my approach or what I bring to a team? You can reach me on LinkedIn or by email.",
+    "email": "Send an email"
   }
-
-
 }

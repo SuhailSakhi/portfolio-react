@@ -1,28 +1,37 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Compass, Layers3, Users } from 'lucide-react';
 import FadeInWhenVisible from './FadeInWhenVisible';
 
 export default function SectionAbout({ aboutRef }) {
     const { t } = useTranslation();
 
     return (
-        <section id="about" ref={aboutRef} className="py-24 px-6 bg-[#1D130C] text-white">
-            <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-10">
+        <section id="about" ref={aboutRef} className="content-section section-halo py-28 px-6">
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-center">
                 <FadeInWhenVisible direction="up">
-                    <img
-                        className="w-72 h-72 object-cover rounded-full shadow-lg transition-transform transform hover:scale-105"
-                        src="/img/pf.jpg"
-                        alt="Profielfoto"
-                    />
+                    <div className="portrait-frame">
+                        <img src="/img/pf.jpg" alt={t('about.photoAlt')} />
+                    </div>
                 </FadeInWhenVisible>
-                <div className="text-center lg:text-left max-w-xl">
+                <div>
                     <FadeInWhenVisible delay={0.2} direction="up">
-                        <h2 className="text-4xl font-bold text-white mb-6">{t('about.title')}</h2>
+                        <h2 className="section-title">{t('about.title')}</h2>
                     </FadeInWhenVisible>
                     <FadeInWhenVisible delay={0.4} direction="up">
-                        <p className="text-lg text-[#d9c6b7] leading-relaxed">
-                            {t('about.description')}
-                        </p>
+                        <div className="section-copy mt-7 space-y-4">
+                            <p>{t('about.description')}</p>
+                            <p>{t('about.descriptionExtra')}</p>
+                            <div className="genz-statement">
+                                <h3>{t('about.specialtyTitle')}</h3>
+                                <p>{t('about.specialtyText')}</p>
+                            </div>
+                        </div>
+                        <div className="about-pillars mt-9">
+                            <div><Compass /><span>{t('about.pillars.strategy')}</span></div>
+                            <div><Layers3 /><span>{t('about.pillars.build')}</span></div>
+                            <div><Users /><span>{t('about.pillars.people')}</span></div>
+                        </div>
                     </FadeInWhenVisible>
                 </div>
             </div>

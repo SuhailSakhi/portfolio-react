@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './tailwind.css';
 import './i18n';
@@ -9,18 +9,23 @@ import SectionAbout from './components/SectionAbout';
 import SectionAmbitions from './components/SectionAmbitions';
 import SectionSkillsCarousel from './components/SectionSkillsCarousel';
 import SectionContact from './components/SectionContact';
-import ImageModal from './components/ImageModal';
-import ProjectsPage from './pages/ProjectsPage'; // Nieuw!
+import ProjectsPage from './pages/ProjectsPage';
+import ProjectCasePage from './pages/ProjectCasePage';
+import RouteScroll from './components/RouteScroll';
 
 function App() {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalImage, setModalImage] = useState(null);
+    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
 
     const homeRef = useRef(null);
     const aboutRef = useRef(null);
     const skillsRef = useRef(null);
     const contactRef = useRef(null);
+
+    useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -41,39 +46,45 @@ function App() {
         }
     };
 
-    const openModal = (image) => {
-        setModalImage(image);
-        setIsModalOpen(true);
-    };
+    const toggleTheme = () => {
+        const updateTheme = () => {
+            setTheme((currentTheme) => currentTheme === 'dark' ? 'light' : 'dark');
+        };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
-        setModalImage(null);
+        if (document.startViewTransition) {
+            document.startViewTransition(updateTheme);
+        } else {
+            updateTheme();
+        }
     };
 
     return (
         <Router>
+            <RouteScroll />
             <Routes>
                 <Route path="/" element={
-                    <div className="bg-white">
+                    <div className="app-shell">
                         <Navbar
                             scrollToSection={scrollToSection}
                             refs={{ homeRef, aboutRef, skillsRef, contactRef }}
+                            theme={theme}
+                            toggleTheme={toggleTheme}
                         />
                         <SectionHome
                             homeRef={homeRef}
-                            aboutRef={aboutRef}
-                            scrollToSection={scrollToSection}
                             isSmallScreen={isSmallScreen}
                         />
                         <SectionAbout aboutRef={aboutRef} />
                         <SectionAmbitions />
                         <SectionSkillsCarousel skillsRef={skillsRef} />
                         <SectionContact contactRef={contactRef} />
-                        {isModalOpen && <ImageModal modalImage={modalImage} closeModal={closeModal} />}
                     </div>
                 } />
-                <Route path="/projects" element={<ProjectsPage />} />
+                <Route
+                    path="/projects"
+                    element={<ProjectsPage theme={theme} toggleTheme={toggleTheme} />}
+                />
+                <Route path="/projects/:slug" element={<ProjectCasePage theme={theme} toggleTheme={toggleTheme} />} />
             </Routes>
         </Router>
     );

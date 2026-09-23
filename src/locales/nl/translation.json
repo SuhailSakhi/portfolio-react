@@ -4,36 +4,72 @@
     "about": "Over mij",
     "skills": "Vaardigheden",
     "projects": "Projecten",
-    "contact": "Contact"
+    "contact": "Contact",
+    "lightMode": "Schakel lichte modus in",
+    "darkMode": "Schakel donkere modus in"
   },
   "home": {
     "welcome": "Welkom",
+    "headline": "Suhail Sakhizadh",
     "intro": {
       "pre": "Ik ben",
       "name": "Suhail Sakhizadh"
     },
-    "subtitle": "Student Creative Technologist",
-    "button": "Meer over mij"
+    "subtitle": "Ik onderzoek problemen, spreek met gebruikers en vertaal inzichten naar digitale producten.",
+    "selectedWork": "Geselecteerd werk",
+    "button": "Over mij",
+    "projectsButton": "Mijn projecten",
+    "explorerLabel": "Ontdek mijn aanpak",
+    "explorerTitle": "Hoe ik werk",
+    "approaches": {
+      "research": {
+        "title": "Onderzoeken",
+        "text": "Ik begin met vragen stellen, luisteren en het probleem begrijpen. Mijn ervaring met Gen Z helpt me gericht onderzoek te doen, terwijl ik ruimte laat voor wat gebruikers zelf vertellen."
+      },
+      "design": {
+        "title": "Concepten ontwikkelen",
+        "text": "Ik verbind inzichten uit onderzoek aan mogelijke oplossingen. Ik verken verschillende richtingen en bespreek mijn ideeën met anderen om tot een onderbouwd concept te komen."
+      },
+      "build": {
+        "title": "Prototypen",
+        "text": "Ik maak ideeën tastbaar met flows, schermen en interactieve prototypes. Zo kunnen anderen de oplossing ervaren en kan ik ontwerpkeuzes toetsen. Mijn technische kennis helpt me om die prototypes uit te werken."
+      }
+    }
   },
   "about": {
-    "title": "Wie ben ik?",
-    "description": "Als creatieve developer richt ik me niet alleen op code. Wat mij onderscheidt, is mijn vermogen om originele ideeën te bedenken, gebruikersgericht onderzoek te doen en de doelgroep actief te betrekken bij het ontwikkelproces met als doel betekenisvolle en impactvolle digitale producten te creëren."
+    "title": "Over mij",
+    "description": "Ik ben graag betrokken wanneer het vraagstuk nog openligt. Wat speelt er, voor wie is het een probleem en welke richting is het onderzoeken waard? Daar krijg ik energie van.",
+    "descriptionExtra": "In een team draag ik bij door onderzoek te doen, verbanden te leggen en ideeën concreet te maken. Ik werk concepten uit tot prototypes, bespreek de keuzes en gebruik feedback om ze verder te ontwikkelen.",
+    "photoAlt": "Portret van Suhail Sakhizadh",
+    "specialtyTitle": "Mijn specialisatie: Gen Z",
+    "specialtyText": "Ik heb veel projecten voor Gen Z gemaakt en heb me daardoor ontwikkeld tot Gen Z-expert. Die ervaring neem ik mee in research, conceptontwikkeling en UX/UI. Ik blijf per project onderzoeken wat deze specifieke gebruikers nodig hebben.",
+    "pillars": {
+      "strategy": "Denken vanuit het waarom",
+      "build": "Ideeën tastbaar maken",
+      "people": "Ontwerpen mét mensen"
+    }
   },
   "ambitions": {
-    "title": "Mijn Visie & Drijfveren",
-    "developerTitle": "Creatieve Developer",
-    "developerText":"Ik haal plezier uit het tot leven brengen van mijn ideeën niet alleen als functionerende producten, maar als hulpmiddelen die écht iets betekenen voor mensen. Voor mij is development een manier om verbeelding om te zetten in impact.",
-    "beyondTitle": "Meer dan Code",
-    "beyondText": "Buiten development houd ik me graag bezig met design en de zakelijke kant van technologie. Ik denk niet alleen na over hoe iets werkt, maar ook waarom het ertoe doet en hoe het past binnen het grotere geheel."
+    "title": "Wat mij drijft",
+    "developerTitle": "Ruimte voor ideeën",
+    "developerText": "Ik vind het interessant om verschillende oplossingen voor een vraagstuk te bedenken. Door ideeën te schetsen en te bespreken ontdek ik welke richting verder onderzoek verdient.",
+    "beyondTitle": "Samen verder komen",
+    "beyondText": "Ik breng graag ideeën in en wil ook begrijpen hoe anderen naar een vraagstuk kijken. Verschillende perspectieven helpen mij om mijn eigen aannames te herkennen en een concept beter te maken.",
+    "researchTitle": "Mensen begrijpen",
+    "researchText": "Ik wil weten wat mensen doen, waar ze tegenaan lopen en waarom. Die nieuwsgierigheid vormt het vertrekpunt voor mijn onderzoek en ontwerpkeuzes."
   },
   "skills": {
-    "title": "Mijn Vaardigheden",
-    "codingTitle": "Programmeren",
-    "codingText": "Ik heb ervaring met JavaScript, React, React Native, Expo Go, Node.js, HTML, CSS en Tailwind. Daarnaast beschik ik over kennis van API's en AI-integraties.",
-    "entrepreneurshipTitle": "Ondernemerschap",
-    "entrepreneurshipText": "Ik hou van pitchen, denken vanuit de gebruiker en werk graag met agile methodes zoals Scrum. Leiderschap en teamcoördinatie zijn mijn sterke kanten.",
-    "researchTitle": "Impact & Design",
-    "researchText": "Ik ben gepassioneerd over duurzame ontwerpen, gamification en doelgroeponderzoek waarmee ik écht impact kan maken."
+    "title": "Wat ik meebreng",
+    "codingTitle": "Prototyping",
+    "codingText": "Ik maak concepten tastbaar met flows, interfaces en interactieve prototypes. Met mijn kennis van React en andere webtechnieken kan ik ook werkende prototypes maken om ideeën te verkennen.",
+    "entrepreneurshipTitle": "Conceptontwikkeling",
+    "entrepreneurshipText": "Ik vertaal onderzoeksinzichten naar ideeën, verken oplossingsrichtingen en onderbouw mijn keuzes. Ik presenteer concepten en werk met anderen aan de verdere uitwerking.",
+    "researchTitle": "Onderzoek",
+    "researchText": "Ik onderzoek behoeften en betrek gebruikers bij het ontwerpproces. Mijn ervaring met veel Gen Z-projecten helpt me inzichten te duiden en gerichte vragen te stellen."
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Meer weten over mijn projecten, mijn aanpak of mijn bijdrage aan een team? Je kunt me bereiken via LinkedIn of e-mail.",
+    "email": "Stuur een e-mail"
   }
-
 }
